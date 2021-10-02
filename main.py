@@ -1,18 +1,3 @@
-
-# Copyright 2020 Google Inc. All Rights Reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 import os
 import logging
 import random
@@ -42,62 +27,36 @@ def dataFormat(data):
     info = list(zip(X, Y, D, wasHit, score))
     myinfo = info[0]
 
-'''
-
-def checkAttack(info,myinfo):
-    if myinfo[2] == "S":
-        for x in info[1:]:
-            if x[0] == myinfo[0] and x[1] > myinfo[1]:
-                if x[1]-myinfo[1] <= 3 and x[2]=="N":
-                    aheadMe.append(x)
-                    escape("S")
-    elif myinfo[2] == "N":
-        for x in info[1:]:
-            if x[0] == myinfo[0] and x[1] < myinfo[1]:
-                if myinfo[1]-x[1] <= 3 and x[2]=="S":
-                    aheadMe.append(x)
-                    escape("N")
-    elif myinfo[2] == "E":
-        for x in info[1:]:
-            if x[0] > myinfo[0] and x[1] == myinfo[1]:
-                if x[0]-myinfo[0] <= 3  and x[2]=="W":
-                    aheadMe.append(x)
-                    escape("E")
-    elif myinfo[2] == "W":
-        for x in info[1:]:
-            if x[0] < myinfo[0] and x[1] == myinfo[1]:
-                if myinfo[0]-x[0] <= 3  and x[2]=="E":
-                    aheadMe.append(x)
-                    escape("W")
-'''
 
 def checkForward(info, myinfo):
     aheadMe = []
     if myinfo[2] == "S":
         for x in info[1:]:
             if x[0] == myinfo[0] and x[1] > myinfo[1]:
+                aheadMe.append(x)
                 if x[1]-myinfo[1] <= 3:
-                    aheadMe.append(x)
                     return "T"
     elif myinfo[2] == "N":
         for x in info[1:]:
             if x[0] == myinfo[0] and x[1] < myinfo[1]:
+                aheadMe.append(x)
                 if myinfo[1]-x[1] <= 3:
-                    aheadMe.append(x)
                     return "T"
     elif myinfo[2] == "E":
         for x in info[1:]:
             if x[0] > myinfo[0] and x[1] == myinfo[1]:
+                aheadMe.append(x)
                 if x[0]-myinfo[0] <= 3:
-                    aheadMe.append(x)
                     return "T"
     elif myinfo[2] == "W":
         for x in info[1:]:
             if x[0] < myinfo[0] and x[1] == myinfo[1]:
+                aheadMe.append(x)
                 if myinfo[0]-x[0] <= 3:
-                    aheadMe.append(x)
                     return "T"
-    return ["L", "R","F"][random.randrange(3)]
+    if len(aheadMe)>0:
+        return "F"
+    return ["L", "R"][random.randrange(3)]
 
 
 @app.route("/", methods=['POST'])
