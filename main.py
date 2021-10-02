@@ -97,7 +97,7 @@ def checkForward(info, myinfo):
                 if myinfo[0]-x[0] <= 3:
                     aheadMe.append(x)
                     return "T"
-    return ["L", "R","F"][random.randrange(2)]
+    return ["L", "R","F"][random.randrange(3)]
 
 
 @app.route("/", methods=['POST'])
