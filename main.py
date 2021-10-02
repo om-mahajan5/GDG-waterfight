@@ -44,7 +44,6 @@ def dataFormat(data):
 
 
 def checkForward(info, myinfo):
-  if
     if myinfo[2] == "S":
         toNorth = []
         for x in info[1:]:
