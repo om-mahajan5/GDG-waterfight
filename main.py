@@ -37,7 +37,7 @@ def dataFormat(data):
   myinfo = info[0]
   
 def checkForward(info,myinfo):
-  if myinfo[2]=="N":
+  if myinfo[2]=="S":
     toNorth = []
     for x in info[1:]:
       if x[0]==myinfo[0] and x[1]>myinfo[1]:
@@ -45,7 +45,7 @@ def checkForward(info,myinfo):
           toNorth.append(x)
           return "T"
     return ["L","R","F"][random.randrange(3)]
-  elif myinfo[2]=="S":
+  elif myinfo[2]=="N":
     toSouth = []
     for x in info[1:]:
       if x[0]==myinfo[0] and x[1]<myinfo[1]:

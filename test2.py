@@ -100,8 +100,10 @@ data = '''{
    }
 }'''
 info = []
+myinfo = []
 mydata = json.loads(data)
 def dataFormat(mydata):
+    print
     global info
     X= [mydata['arena']['state'][key]['x'] for key in mydata['arena']['state'].keys()]
     Y= [mydata['arena']['state'][key]['y'] for key in mydata['arena']['state'].keys()]
@@ -110,26 +112,21 @@ def dataFormat(mydata):
     score = [mydata['arena']['state'][key]['score'] for key in mydata['arena']['state'].keys()]
     info = list(zip(X,Y,D,wasHit,score))
 
-dataFormat(data)
-
-checkForward(myinfo)
-myinfo = info[7] #6 7 9 11
-print(info)
 
 def checkForward(myinfo):
     if myinfo[2]=="N":
-        toNorth = []
-        for x in info:
-            if x[0]==myinfo[0] and x[1]>myinfo[1]:
-                if x[1]-myinfo[1]<=3:
-                    toNorth.append(x)
-                    return "T"
-    elif myinfo[2]=="S":
         toSouth = []
         for x in info:
             if x[0]==myinfo[0] and x[1]<myinfo[1]:
                 if myinfo[1]-x[1]<=3:
                     toSouth.append(x)
+                    return "T"
+    elif myinfo[2]=="S":
+        toNorth = []
+        for x in info:
+            if x[0]==myinfo[0] and x[1]>myinfo[1]:
+                if x[1]-myinfo[1]<=3:
+                    toNorth.append(x)
                     return "T"
     elif myinfo[2]=="E":
         toEast = []
@@ -146,5 +143,12 @@ def checkForward(myinfo):
                     toWest.append(x)
                     return "T"
 
-plt.scatter(X,Y)
+dataFormat(mydata)
+
+myinfo = info[0] #6 7 9 11
+print(checkForward(myinfo))
+print(info)
+
+
+plt.scatter([mydata['arena']['state'][key]['x'] for key in mydata['arena']['state'].keys()],[mydata['arena']['state'][key]['y'] for key in mydata['arena']['state'].keys()])
 plt.show()
