@@ -75,8 +75,9 @@ def checkForward(info,myinfo):
 @app.route("/", methods=['POST'])
 def move():
     request.get_data()
-    logger.info(request.json)
     dataFormat(request.json)
+    decision = checkForward(info,myinfo)
+    logger.info(request.json + "DECISION" +decision)
     return checkForward(info,myinfo)
     # return moves[random.randrange(len(moves))]
 
