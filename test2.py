@@ -1,4 +1,4 @@
-import json
+import json, random
 import matplotlib.pyplot as plt
 data = '''{
    "_links":{
@@ -569,45 +569,45 @@ def dataFormat(mydata):
 
 
 def checkForward(myinfo):
-    if myinfo[2]=="N":
-        toSouth = []
-        for x in info:
-            if x[0]==myinfo[0] and x[1]<myinfo[1]:
-                if myinfo[1]-x[1]<=3:
-                    toSouth.append(x)
-                    print(toSouth)
+    aheadMe = []
+    if myinfo[2] == "S":
+        for x in info[1:]:
+            if x[0] == myinfo[0] and x[1] > myinfo[1]:
+                if x[1]-myinfo[1] <= 3:
+                    aheadMe.append(x)
+                    print(aheadMe)
                     return "T"
-    elif myinfo[2]=="S":
-        toNorth = []
-        for x in info:
-            if x[0]==myinfo[0] and x[1]>myinfo[1]:
-                if x[1]-myinfo[1]<=3:
-                    toNorth.append(x)
-                    print(toNorth)
+    elif myinfo[2] == "N":
+        for x in info[1:]:
+            if x[0] == myinfo[0] and x[1] < myinfo[1]:
+                if myinfo[1]-x[1] <= 3:
+                    aheadMe.append(x)
+                    print(aheadMe)
                     return "T"
-    elif myinfo[2]=="E":
-        toEast = []
-        for x in info:
-            if x[0]>myinfo[0] and x[1]==myinfo[1]:
-                if x[0]-myinfo[0]<=3:
-                    toEast.append(x)
-                    print(toEast)
+    elif myinfo[2] == "E":
+        for x in info[1:]:
+            if x[0] > myinfo[0] and x[1] == myinfo[1]:
+                if x[0]-myinfo[0] <= 3:
+                    aheadMe.append(x)
+                    print(aheadMe)
                     return "T"
-    elif myinfo[2]=="W":
-        toWest = []
-        for x in info:
-            if x[0]<myinfo[0] and x[1]==myinfo[1]:
-                if myinfo[0]-x[0]<=3:
-                    toWest.append(x)
-                    print(toWest)
+    elif myinfo[2] == "W":
+        for x in info[1:]:
+            if x[0] < myinfo[0] and x[1] == myinfo[1]:
+                if myinfo[0]-x[0] <= 3:
+                    aheadMe.append(x)
+                    print(aheadMe)
                     return "T"
+    print(aheadMe)
+    return ["L", "R"][random.randrange(2)]
 
 dataFormat(mydata)
 
-myinfo = info[0] #6 7 9 11
+myinfo = info[] #6 7 9 11
+print("My coordinates are :" + str(myinfo))
 print(checkForward(myinfo))
 print(info)
-
-
+plt.gca().invert_yaxis()
 plt.scatter([mydata['arena']['state'][key]['x'] for key in mydata['arena']['state'].keys()],[mydata['arena']['state'][key]['y'] for key in mydata['arena']['state'].keys()])
+plt.scatter(myinfo[0],myinfo[1])
 plt.show()
