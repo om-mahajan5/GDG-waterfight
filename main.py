@@ -77,7 +77,7 @@ def move():
     request.get_data()
     dataFormat(request.json)
     decision = checkForward(info,myinfo)
-    logger.info(request.json + "DECISION" +decision)
+    logger.info(str(request.json) + "DECISION" +decision)
     return checkForward(info,myinfo)
     # return moves[random.randrange(len(moves))]
 
