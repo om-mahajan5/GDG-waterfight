@@ -99,15 +99,20 @@ data = '''{
       }
    }
 }'''
-
+info = []
 mydata = json.loads(data)
 def dataFormat(mydata):
+    global info
     X= [mydata['arena']['state'][key]['x'] for key in mydata['arena']['state'].keys()]
     Y= [mydata['arena']['state'][key]['y'] for key in mydata['arena']['state'].keys()]
     D= [mydata['arena']['state'][key]['direction'] for key in mydata['arena']['state'].keys()]
     wasHit= [mydata['arena']['state'][key]['wasHit'] for key in mydata['arena']['state'].keys()]
     score = [mydata['arena']['state'][key]['score'] for key in mydata['arena']['state'].keys()]
     info = list(zip(X,Y,D,wasHit,score))
+
+dataFormat(data)
+
+checkForward(myinfo)
 myinfo = info[7] #6 7 9 11
 print(info)
 

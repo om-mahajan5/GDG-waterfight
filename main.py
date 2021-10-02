@@ -46,8 +46,7 @@ def checkForward(info,myinfo):
           return "T"
         else:
           return "F"
-      else:
-        return ["L","R","F"][random.randrange(3)]
+    return ["L","R","F"][random.randrange(3)]
   elif myinfo[2]=="S":
     toSouth = []
     for x in info:
@@ -57,8 +56,7 @@ def checkForward(info,myinfo):
           return "T"
         else:
           return "F"
-      else:
-        return ["L","R","F"][random.randrange(3)]
+    return ["L","R","F"][random.randrange(3)]
   elif myinfo[2]=="E":
     toEast = []
     for x in info:
@@ -68,8 +66,7 @@ def checkForward(info,myinfo):
           return "T"
         else:
           return "F"
-      else:
-        return ["L","R","F"][random.randrange(3)]
+    return ["L","R","F"][random.randrange(3)]
   elif myinfo[2]=="W":
     toWest = []
     for x in info:
