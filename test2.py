@@ -8,93 +8,548 @@ data = '''{
    },
    "arena":{
       "dims":[
-         10,
-         7
+         26,
+         19
       ],
       "state":{
-         "https://python-bot-jinxto7chq-em.a.run.app":{
-            "x":2,
-            "y":6,
-            "direction":"E",
+         "https://python-bot-jinxto7chq-em.a.run.app/":{
+            "x":21,
+            "y":5,
+            "direction":"W",
             "wasHit":false,
-            "score":0
+            "score":6
          },
-         "https://java-springboot-bot-vt7gk6uhyq-em.a.run.app":{
-            "x":9,
-            "y":0,
+         "https://python-bot-nfida5l7ta-uc.a.run.app":{
+            "x":14,
+            "y":11,
+            "direction":"S",
+            "wasHit":false,
+            "score":-10
+         },
+         "https://python-bot-a6xe4m4rma-uc.a.run.app":{
+            "x":19,
+            "y":2,
             "direction":"W",
             "wasHit":false,
             "score":0
          },
-         "https://nodejs-bot-zx4wpxe3oq-em.a.run.app":{
-            "x":7,
+         "https://java-springboot-bot-lhk63fny4q-uc.a.run.app":{
+            "x":4,
+            "y":7,
+            "direction":"N",
+            "wasHit":false,
+            "score":6
+         },
+         "https://python-bot-37aoukcprq-uc.a.run.app":{
+            "x":23,
             "y":2,
+            "direction":"W",
+            "wasHit":false,
+            "score":-5
+         },
+         "https://gdg-hackathon-waterfight1-nd4dw7nt4q-uc.a.run.app":{
+            "x":24,
+            "y":14,
+            "direction":"W",
+            "wasHit":false,
+            "score":-1
+         },
+         "https://nodejs-bot-6tygmbjfbq-de.a.run.app":{
+            "x":14,
+            "y":1,
+            "direction":"E",
+            "wasHit":false,
+            "score":-3
+         },
+         "https://python-bot-j4bgsvwz3a-uc.a.run.app":{
+            "x":14,
+            "y":12,
+            "direction":"N",
+            "wasHit":false,
+            "score":3
+         },
+         "https://python-bot-dixh6r3epq-uc.a.run.app":{
+            "x":1,
+            "y":1,
+            "direction":"S",
+            "wasHit":false,
+            "score":5
+         },
+         "https://java-springboot-bot-3geshnyd6a-em.a.run.app":{
+            "x":7,
+            "y":15,
+            "direction":"W",
+            "wasHit":false,
+            "score":5
+         },
+         "https://nodejs-bot-q7wdicztsa-uc.a.run.app/":{
+            "x":6,
+            "y":9,
+            "direction":"S",
+            "wasHit":false,
+            "score":-1
+         },
+         "https://nodejs-bot-7juvvzwy4q-uc.a.run.app":{
+            "x":12,
+            "y":18,
+            "direction":"E",
+            "wasHit":true,
+            "score":2
+         },
+         "https://cloudbowl-samples-python-qhvhf4nhcq-uc.a.run.app":{
+            "x":20,
+            "y":14,
+            "direction":"N",
+            "wasHit":true,
+            "score":1
+         },
+         "https://java-springboot-bot-sdktvngs4q-em.a.run.app":{
+            "x":25,
+            "y":5,
             "direction":"E",
             "wasHit":false,
             "score":0
          },
-         "https://python-bot-3h4xit75ca-uc.a.run.app":{
-            "x":6,
-            "y":5,
+         "https://java-springboot-bot-pcflti3d5a-uc.a.run.app/":{
+            "x":23,
+            "y":13,
+            "direction":"W",
+            "wasHit":false,
+            "score":6
+         },
+         "https://python-bot-57yudx7dzq-uc.a.run.app":{
+            "x":15,
+            "y":11,
+            "direction":"E",
+            "wasHit":true,
+            "score":5
+         },
+         "https://java-springboot-bot-imijd5qzba-em.a.run.app/":{
+            "x":24,
+            "y":12,
             "direction":"N",
             "wasHit":false,
             "score":0
          },
-         "https://nodejs-bot-tmozo7xwqa-as.a.run.app":{
-            "x":3,
-            "y":5,
+         "https://python-bot-jwmgldrsza-em.a.run.app":{
+            "x":14,
+            "y":18,
+            "direction":"W",
+            "wasHit":false,
+            "score":-1
+         },
+         "https://python-bot-neiowxtnya-as.a.run.app":{
+            "x":2,
+            "y":17,
+            "direction":"S",
+            "wasHit":false,
+            "score":-6
+         },
+         "https://python-bot-init-37aoukcprq-uc.a.run.app":{
+            "x":9,
+            "y":17,
             "direction":"E",
             "wasHit":false,
             "score":0
          },
+         "https://python-bot-gv4vdwcouq-as.a.run.app":{
+            "x":18,
+            "y":13,
+            "direction":"E",
+            "wasHit":false,
+            "score":3
+         },
+         "https://python-bot-nvd5tshwka-em.a.run.app":{
+            "x":24,
+            "y":10,
+            "direction":"E",
+            "wasHit":true,
+            "score":-4
+         },
+         "https://nodejs-bot-tp3mgve2tq-as.a.run.app":{
+            "x":1,
+            "y":7,
+            "direction":"W",
+            "wasHit":false,
+            "score":-11
+         },
+         "https://python-bot-adlhc57fcq-de.a.run.app":{
+            "x":17,
+            "y":12,
+            "direction":"W",
+            "wasHit":false,
+            "score":40
+         },
+         "https://java-springboot-bot-q77mexigbq-uc.a.run.app":{
+            "x":12,
+            "y":8,
+            "direction":"E",
+            "wasHit":false,
+            "score":7
+         },
+         "https://nodejs-bot-zx4wpxe3oq-em.a.run.app":{
+            "x":24,
+            "y":7,
+            "direction":"S",
+            "wasHit":false,
+            "score":8
+         },
+         "https://python-bot-qi5lo24wiq-uc.a.run.app":{
+            "x":22,
+            "y":1,
+            "direction":"W",
+            "wasHit":false,
+            "score":1
+         },
+         "https://java-springboot-bot-zkqghyzc6a-em.a.run.app/":{
+            "x":8,
+            "y":6,
+            "direction":"E",
+            "wasHit":true,
+            "score":12
+         },
+         "https://java-springboot-bot-iiqpxb2opq-uc.a.run.app/":{
+            "x":20,
+            "y":7,
+            "direction":"W",
+            "wasHit":false,
+            "score":4
+         },
+         "https://gdg-hackathon-waterfight-nd4dw7nt4q-uc.a.run.app":{
+            "x":10,
+            "y":8,
+            "direction":"W",
+            "wasHit":false,
+            "score":-8
+         },
+         "https://nodejs-bot-75sqlqwrjq-uc.a.run.app/":{
+            "x":2,
+            "y":0,
+            "direction":"N",
+            "wasHit":false,
+            "score":-4
+         },
+         "https://nodejs-bot-7qvto6pejq-em.a.run.app":{
+            "x":23,
+            "y":10,
+            "direction":"S",
+            "wasHit":false,
+            "score":-5
+         },
+         "https://python-bot-prcttfqyhq-as.a.run.app":{
+            "x":1,
+            "y":17,
+            "direction":"E",
+            "wasHit":false,
+            "score":-1
+         },
+         "https://python-bot-jevqo63kwq-em.a.run.app":{
+            "x":13,
+            "y":11,
+            "direction":"N",
+            "wasHit":false,
+            "score":-2
+         },
+         "https://python-bot-fwutkkw3ka-as.a.run.app":{
+            "x":5,
+            "y":18,
+            "direction":"E",
+            "wasHit":false,
+            "score":6
+         },
+         "https://python-bot-52ntxfiqrq-de.a.run.app":{
+            "x":14,
+            "y":17,
+            "direction":"E",
+            "wasHit":false,
+            "score":1
+         },
+         "https://python-bot-452ho4dira-as.a.run.app/":{
+            "x":24,
+            "y":0,
+            "direction":"S",
+            "wasHit":false,
+            "score":3
+         },
+         "https://nodejs1-bot-7juvvzwy4q-uc.a.run.app":{
+            "x":15,
+            "y":14,
+            "direction":"W",
+            "wasHit":false,
+            "score":-3
+         },
+         "https://java-springboot-bot-xkz7nfoj4a-uc.a.run.app":{
+            "x":21,
+            "y":7,
+            "direction":"W",
+            "wasHit":false,
+            "score":0
+         },
+         "https://python-bot-w65lt2fhda-as.a.run.app":{
+            "x":1,
+            "y":5,
+            "direction":"W",
+            "wasHit":false,
+            "score":3
+         },
+         "https://go-bot-jwmgldrsza-em.a.run.app":{
+            "x":21,
+            "y":13,
+            "direction":"E",
+            "wasHit":true,
+            "score":4
+         },
+         "https://java-springboot-bot-nubzp6avqa-uc.a.run.app":{
+            "x":19,
+            "y":14,
+            "direction":"E",
+            "wasHit":false,
+            "score":6
+         },
+         "https://python-bot-q4ypfscu7a-uc.a.run.app":{
+            "x":3,
+            "y":12,
+            "direction":"N",
+            "wasHit":false,
+            "score":2
+         },
+         "https://python-bot-goawe5pwha-uc.a.run.app":{
+            "x":2,
+            "y":2,
+            "direction":"W",
+            "wasHit":false,
+            "score":-1
+         },
+         "https://java-springboot-bot-tmozo7xwqa-as.a.run.app":{
+            "x":8,
+            "y":11,
+            "direction":"E",
+            "wasHit":false,
+            "score":-6
+         },
+         "https://java-springboot-bot-chd6tovdjq-an.a.run.app":{
+            "x":7,
+            "y":12,
+            "direction":"S",
+            "wasHit":false,
+            "score":-6
+         },
+         "https://java-springboot-bot-tlz3sxce6q-as.a.run.app":{
+            "x":9,
+            "y":13,
+            "direction":"E",
+            "wasHit":true,
+            "score":2
+         },
+         "https://python-bot-jcfeehe56q-as.a.run.app":{
+            "x":19,
+            "y":8,
+            "direction":"W",
+            "wasHit":false,
+            "score":-1
+         },
+         "https://java-springboot-bot-aoj52cfs3a-em.a.run.app/":{
+            "x":16,
+            "y":10,
+            "direction":"W",
+            "wasHit":false,
+            "score":4
+         },
+         "https://java-springboot-bot-7uka4f5fxq-wm.a.run.app/":{
+            "x":7,
+            "y":8,
+            "direction":"N",
+            "wasHit":false,
+            "score":7
+         },
+         "https://python-bot-jxkeswruca-em.a.run.app/":{
+            "x":13,
+            "y":15,
+            "direction":"W",
+            "wasHit":false,
+            "score":3
+         },
+         "https://java-springboot-bot-hnekv7pxna-uc.a.run.app":{
+            "x":15,
+            "y":12,
+            "direction":"N",
+            "wasHit":true,
+            "score":-46
+         },
+         "https://java-springboot-bot-ttfwcsouaq-et.a.run.app":{
+            "x":8,
+            "y":14,
+            "direction":"E",
+            "wasHit":false,
+            "score":-6
+         },
+         "https://java-springboot-bot-yz4c5w7fya-em.a.run.app":{
+            "x":17,
+            "y":7,
+            "direction":"N",
+            "wasHit":false,
+            "score":3
+         },
+         "https://python-bot-rkd6qhgnpa-uc.a.run.app":{
+            "x":11,
+            "y":7,
+            "direction":"N",
+            "wasHit":false,
+            "score":-2
+         },
+         "https://java-springboot-bot-t76ckkolba-em.a.run.app":{
+            "x":2,
+            "y":8,
+            "direction":"W",
+            "wasHit":false,
+            "score":-8
+         },
+         "https://nodejs-bot-teqncanitq-em.a.run.app":{
+            "x":17,
+            "y":13,
+            "direction":"E",
+            "wasHit":false,
+            "score":13
+         },
+         "https://nodejs-bot-6evexe43kq-em.a.run.app":{
+            "x":6,
+            "y":15,
+            "direction":"N",
+            "wasHit":true,
+            "score":-5
+         },
+         "https://python-bot-or3i5dcs6q-as.a.run.app":{
+            "x":21,
+            "y":14,
+            "direction":"W",
+            "wasHit":false,
+            "score":-9
+         },
+         "https://python-bot-k73zz24khq-em.a.run.app":{
+            "x":1,
+            "y":10,
+            "direction":"S",
+            "wasHit":false,
+            "score":7
+         },
          "https://java-springboot-bot-oaiu5q5ata-de.a.run.app":{
-            "x":4,
-            "y":4,
+            "x":18,
+            "y":8,
+            "direction":"W",
+            "wasHit":true,
+            "score":-7
+         },
+         "https://java-springboot-bot-iiqpxb2opq-as.a.run.app":{
+            "x":22,
+            "y":2,
+            "direction":"E",
+            "wasHit":false,
+            "score":-8
+         },
+         "https://python-bot-hph5hxhrea-uc.a.run.app":{
+            "x":11,
+            "y":15,
+            "direction":"W",
+            "wasHit":false,
+            "score":0
+         },
+         "https://java-quarkus-bot-qvwrwwmspa-an.a.run.app":{
+            "x":3,
+            "y":13,
+            "direction":"N",
+            "wasHit":false,
+            "score":6
+         },
+         "https://java-springboot-bot-pia36fdfia-uc.a.run.app":{
+            "x":17,
+            "y":11,
+            "direction":"W",
+            "wasHit":false,
+            "score":4
+         },
+         "https://java-springboot-bot-dd6ysknx4q-as.a.run.app/":{
+            "x":7,
+            "y":11,
+            "direction":"W",
+            "wasHit":false,
+            "score":2
+         },
+         "https://nodejs-bot-ycv2zatg2q-as.a.run.app":{
+            "x":2,
+            "y":13,
+            "direction":"N",
+            "wasHit":false,
+            "score":-6
+         },
+         "https://python-bot-k65oqbmiwq-uc.a.run.app":{
+            "x":23,
+            "y":0,
+            "direction":"E",
+            "wasHit":false,
+            "score":3
+         },
+         "https://java-springboot-bot-r5lsmc2n3q-an.a.run.app":{
+            "x":6,
+            "y":13,
+            "direction":"E",
+            "wasHit":false,
+            "score":6
+         },
+         "https://python-bot-g4i6tnpi6a-et.a.run.app":{
+            "x":5,
+            "y":12,
             "direction":"S",
             "wasHit":false,
             "score":0
          },
-         "https://java-quarkus-bot-nallqtvrbq-de.a.run.app":{
-            "x":4,
-            "y":3,
-            "direction":"N",
-            "wasHit":false,
-            "score":0
-         },
-         "https://python-bot-ucfpygglmq-an.a.run.app/":{
-            "x":4,
+         "https://python-bot-emv67touba-as.a.run.app":{
+            "x":10,
             "y":1,
             "direction":"N",
             "wasHit":false,
             "score":0
          },
-         "https://nodejs-bot-q7wdicztsa-uc.a.run.app/":{
-            "x":0,
-            "y":3,
+         "https://nodejs-bot-ds7faymhlq-em.a.run.app":{
+            "x":3,
+            "y":0,
+            "direction":"E",
+            "wasHit":false,
+            "score":1
+         },
+         "https://nodejs-bot-frmhdtp27a-em.a.run.app":{
+            "x":15,
+            "y":17,
             "direction":"E",
             "wasHit":false,
             "score":0
          },
-         "https://python-bot-lt7kzp4ajq-an.a.run.app/":{
-            "x":7,
-            "y":5,
+         "https://python-bot-lksldry3kq-as.a.run.app":{
+            "x":9,
+            "y":3,
             "direction":"W",
             "wasHit":false,
-            "score":0
+            "score":-5
          },
-         "https://python-bot-jxkeswruca-em.a.run.app/":{
-            "x":5,
-            "y":4,
+         "https://python-bot-icrbym7wua-em.a.run.app/":{
+            "x":23,
+            "y":12,
             "direction":"S",
             "wasHit":false,
-            "score":0
+            "score":-8
          },
-         "https://java-springboot-bot-aoj52cfs3a-em.a.run.app/":{
-            "x":3,
-            "y":6,
-            "direction":"W",
+         "https://python-bot-gxuznriszq-de.a.run.app":{
+            "x":9,
+            "y":15,
+            "direction":"S",
             "wasHit":false,
-            "score":0
+            "score":-7
+         },
+         "https://python-bot-ucfpygglmq-an.a.run.app/":{
+            "x":18,
+            "y":17,
+            "direction":"S",
+            "wasHit":true,
+            "score":-4
          }
       }
    }
@@ -120,6 +575,7 @@ def checkForward(myinfo):
             if x[0]==myinfo[0] and x[1]<myinfo[1]:
                 if myinfo[1]-x[1]<=3:
                     toSouth.append(x)
+                    print(toSouth)
                     return "T"
     elif myinfo[2]=="S":
         toNorth = []
@@ -127,20 +583,23 @@ def checkForward(myinfo):
             if x[0]==myinfo[0] and x[1]>myinfo[1]:
                 if x[1]-myinfo[1]<=3:
                     toNorth.append(x)
+                    print(toNorth)
                     return "T"
     elif myinfo[2]=="E":
         toEast = []
         for x in info:
             if x[0]>myinfo[0] and x[1]==myinfo[1]:
-                if x[0]-myinfo[1]<=3:
+                if x[0]-myinfo[0]<=3:
                     toEast.append(x)
+                    print(toEast)
                     return "T"
     elif myinfo[2]=="W":
         toWest = []
         for x in info:
             if x[0]<myinfo[0] and x[1]==myinfo[1]:
-                if myinfo[1]-x[1]<=3:
+                if myinfo[0]-x[0]<=3:
                     toWest.append(x)
+                    print(toWest)
                     return "T"
 
 dataFormat(mydata)
