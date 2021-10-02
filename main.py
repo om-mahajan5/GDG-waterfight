@@ -28,11 +28,11 @@ myinfo = []
 
 def dataFormat(data):
   global info, myinfo
-  X= [mydata['arena']['state'][key]['x'] for key in mydata['arena']['state'].keys()]
-  Y= [mydata['arena']['state'][key]['y'] for key in mydata['arena']['state'].keys()]
-  D= [mydata['arena']['state'][key]['direction'] for key in mydata['arena']['state'].keys()]
-  wasHit= [mydata['arena']['state'][key]['wasHit'] for key in mydata['arena']['state'].keys()]
-  score = [mydata['arena']['state'][key]['score'] for key in mydata['arena']['state'].keys()]
+  X= [data['arena']['state'][key]['x'] for key in data['arena']['state'].keys()]
+  Y= [data['arena']['state'][key]['y'] for key in data['arena']['state'].keys()]
+  D= [data['arena']['state'][key]['direction'] for key in data['arena']['state'].keys()]
+  wasHit= [data['arena']['state'][key]['wasHit'] for key in data['arena']['state'].keys()]
+  score = [data['arena']['state'][key]['score'] for key in data['arena']['state'].keys()]
   info = list(zip(X,Y,D,wasHit,score))
   myinfo = info[0]
   
