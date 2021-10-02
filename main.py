@@ -23,12 +23,57 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 moves = ['F', 'T', 'L', 'R']
+info = []
+myinfo = []
+
+def dataFormat(data):
+  global info, myinfo
+  X= [mydata['arena']['state'][key]['x'] for key in mydata['arena']['state'].keys()]
+  Y= [mydata['arena']['state'][key]['y'] for key in mydata['arena']['state'].keys()]
+  D= [mydata['arena']['state'][key]['direction'] for key in mydata['arena']['state'].keys()]
+  wasHit= [mydata['arena']['state'][key]['wasHit'] for key in mydata['arena']['state'].keys()]
+  score = [mydata['arena']['state'][key]['score'] for key in mydata['arena']['state'].keys()]
+  info = list(zip(X,Y,D,wasHit,score))
+  myinfo = info[0]
+  
+def checkForward(info,myinfo):
+  if myinfo[2]=="N":
+    toNorth = []
+    for x in info:
+      if x[0]==myinfo[0] and x[1]>myinfo[1]:
+        if x[1]-myinfo[1]<=3:
+          toNorth.append(x)
+          return "T"
+  elif myinfo[2]=="S":
+    toSouth = []
+    for x in info:
+      if x[0]==myinfo[0] and x[1]<myinfo[1]:
+        if myinfo[1]-x[1]<=3:
+          toSouth.append(x)
+          return "T"
+  elif myinfo[2]=="E":
+    toEast = []
+    for x in info:
+      if x[0]>myinfo[0] and x[1]==myinfo[1]:
+        if x[0]-myinfo[1]<=3:
+          toEast.append(x)
+          return "T"
+  elif myinfo[2]=="W":
+    toWest = []
+    for x in info:
+      if x[0]<myinfo[0] and x[1]==myinfo[1]:
+        if myinfo[1]-x[1]<=3:
+          toWest.append(x)
+          return "T"
+
 
 @app.route("/", methods=['POST'])
 def move():
     request.get_data()
     logger.info(request.json)
-    return moves[random.randrange(len(moves))]
+    dataFormat(request.json)
+    return checkForward(info,myinfo)
+    # return moves[random.randrange(len(moves))]
 
 if __name__ == "__main__":
   app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))

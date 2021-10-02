@@ -1,9 +1,6 @@
-import os
-import logging
-import random
-from flask import Flask, request
 import json
-data='''{
+import matplotlib.pyplot as plt
+data = '''{
    "_links":{
       "self":{
          "href":"https://python-bot-jxkeswruca-em.a.run.app/"
@@ -102,18 +99,47 @@ data='''{
       }
    }
 }'''
-logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
-logger = logging.getLogger(__name__)
 
-app = Flask(__name__)
-moves = ['F', 'T', 'L', 'R']
+mydata = json.loads(data)
+def dataFormat(mydata):
+    X= [mydata['arena']['state'][key]['x'] for key in mydata['arena']['state'].keys()]
+    Y= [mydata['arena']['state'][key]['y'] for key in mydata['arena']['state'].keys()]
+    D= [mydata['arena']['state'][key]['direction'] for key in mydata['arena']['state'].keys()]
+    wasHit= [mydata['arena']['state'][key]['wasHit'] for key in mydata['arena']['state'].keys()]
+    score = [mydata['arena']['state'][key]['score'] for key in mydata['arena']['state'].keys()]
+    info = list(zip(X,Y,D,wasHit,score))
+myinfo = info[7] #6 7 9 11
+print(info)
 
-@app.route("/", methods=['POST'])
-def move():
-    request.get_data()
-    logger.info(request.json)
-    return moves[random.randrange(len(moves))]
+def checkForward(myinfo):
+    if myinfo[2]=="N":
+        toNorth = []
+        for x in info:
+            if x[0]==myinfo[0] and x[1]>myinfo[1]:
+                if x[1]-myinfo[1]<=3:
+                    toNorth.append(x)
+                    return "T"
+    elif myinfo[2]=="S":
+        toSouth = []
+        for x in info:
+            if x[0]==myinfo[0] and x[1]<myinfo[1]:
+                if myinfo[1]-x[1]<=3:
+                    toSouth.append(x)
+                    return "T"
+    elif myinfo[2]=="E":
+        toEast = []
+        for x in info:
+            if x[0]>myinfo[0] and x[1]==myinfo[1]:
+                if x[0]-myinfo[1]<=3:
+                    toEast.append(x)
+                    return "T"
+    elif myinfo[2]=="W":
+        toWest = []
+        for x in info:
+            if x[0]<myinfo[0] and x[1]==myinfo[1]:
+                if myinfo[1]-x[1]<=3:
+                    toWest.append(x)
+                    return "T"
 
-if __name__ == "__main__":
-  app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
-  
+plt.scatter(X,Y)
+plt.show()
