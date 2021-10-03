@@ -63,8 +63,6 @@ def checkForward(state, mystate):
                 aheadMe.append(player)
                 if mystate[0]-player[0] <= 3:
                     return "T"
-    if len(aheadMe)>0:
-        return "F"
     return ["L", "R","F"][random.randrange(3)]
 
 
