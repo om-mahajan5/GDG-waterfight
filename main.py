@@ -74,7 +74,7 @@ def move():
     formatData(request.json)
     decision = checkForward(state, mystate)
     logger.info(str(request.json) + " DECISION " + decision)
-    return checkForward(decision)
+    return decision
     # return moves[random.randrange(len(moves))]
 
 
