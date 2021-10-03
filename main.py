@@ -37,7 +37,7 @@ def dataFormat(data):
     myinfo = info[0]
 
 
-def checkForward(info, myinfo):
+def checkForward(state, mystate):
     aheadMe = []
     if mystate[2] == "S":
         for player in state:
