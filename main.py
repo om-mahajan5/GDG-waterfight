@@ -8,9 +8,17 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 moves = ['F', 'T', 'L', 'R']
-info = []
-myinfo = []
+state = []
+mystate = []
 
+def formatData():
+    global state, mystate
+    myURL = mydata['_links']['self']['href']
+    for key in mydata['arena']['state'].keys():
+        if key==myURL:
+            mystate = [mydata['arena']['state'][key]['x'],mydata['arena']['state'][key]['y'],mydata['arena']['state'][key]['direction'],mydata['arena']['state'][key]['wasHit'],mydata['arena']['state'][key]['score']]
+        else:
+            state.append([mydata['arena']['state'][key]['x'],mydata['arena']['state'][key]['y'],mydata['arena']['state'][key]['direction'],mydata['arena']['state'][key]['wasHit'],mydata['arena']['state'][key]['score']])
 
 def dataFormat(data):
     global info, myinfo
@@ -30,29 +38,29 @@ def dataFormat(data):
 
 def checkForward(info, myinfo):
     aheadMe = []
-    if myinfo[2] == "S":
-        for x in info[1:]:
-            if x[0] == myinfo[0] and x[1] > myinfo[1]:
-                aheadMe.append(x)
-                if x[1]-myinfo[1] <= 3:
+    if mystate[2] == "S":
+        for player in state:
+            if player[0] == mystate[0] and player[1] > mystate[1]:
+                aheadMe.append(player)
+                if player[1]-mystate[1] <= 3:
                     return "T"
-    elif myinfo[2] == "N":
-        for x in info[1:]:
-            if x[0] == myinfo[0] and x[1] < myinfo[1]:
-                aheadMe.append(x)
-                if myinfo[1]-x[1] <= 3:
+    elif mystate[2] == "N":
+        for player in state:
+            if player[0] == mystate[0] and player[1] < mystate[1]:
+                aheadMe.append(player)
+                if mystate[1]-player[1] <= 3:
                     return "T"
-    elif myinfo[2] == "E":
-        for x in info[1:]:
-            if x[0] > myinfo[0] and x[1] == myinfo[1]:
-                aheadMe.append(x)
-                if x[0]-myinfo[0] <= 3:
+    elif mystate[2] == "E":
+        for player in state:
+            if player[0] > mystate[0] and player[1] == mystate[1]:
+                aheadMe.append(player)
+                if player[0]-mystate[0] <= 3:
                     return "T"
-    elif myinfo[2] == "W":
-        for x in info[1:]:
-            if x[0] < myinfo[0] and x[1] == myinfo[1]:
-                aheadMe.append(x)
-                if myinfo[0]-x[0] <= 3:
+    elif mystate[2] == "W":
+        for player in state:
+            if player[0] < mystate[0] and player[1] == mystate[1]:
+                aheadMe.append(player)
+                if mystate[0]-player[0] <= 3:
                     return "T"
     if len(aheadMe)>0:
         return "F"
@@ -62,7 +70,7 @@ def checkForward(info, myinfo):
 @app.route("/", methods=['POST'])
 def move():
     request.get_data()
-    dataFormat(request.json)
+    formatData()
     decision = checkForward(info, myinfo)
     logger.info(str(request.json) + " DECISION " + decision)
     return checkForward(info, myinfo)
