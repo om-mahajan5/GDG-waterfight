@@ -10,8 +10,8 @@ app = Flask(__name__)
 moves = ['F', 'T', 'L', 'R']
 state = []
 mystate = []
-'''
-def formatData():
+
+def formatData(mydata):
     global state, mystate
     myURL = mydata['_links']['self']['href']
     for key in mydata['arena']['state'].keys():
@@ -19,7 +19,7 @@ def formatData():
             mystate = [mydata['arena']['state'][key]['x'],mydata['arena']['state'][key]['y'],mydata['arena']['state'][key]['direction'],mydata['arena']['state'][key]['wasHit'],mydata['arena']['state'][key]['score']]
         else:
             state.append([mydata['arena']['state'][key]['x'],mydata['arena']['state'][key]['y'],mydata['arena']['state'][key]['direction'],mydata['arena']['state'][key]['wasHit'],mydata['arena']['state'][key]['score']])
-'''
+
 
 def dataFormat(data):
     global info, myinfo
@@ -71,7 +71,7 @@ def checkForward(info, myinfo):
 @app.route("/", methods=['POST'])
 def move():
     request.get_data()
-    formatData()
+    formatData(request.json)
     decision = checkForward(state, mystate)
     logger.info(str(request.json) + " DECISION " + decision)
     return checkForward(decision)
