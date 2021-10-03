@@ -65,7 +65,7 @@ def checkForward(state, mystate):
                     return "T"
     if len(aheadMe)>0:
         return "F"
-    return ["L", "R"][random.randrange(2)]
+    return ["L", "R","F"][random.randrange(3)]
 
 
 @app.route("/", methods=['POST'])
