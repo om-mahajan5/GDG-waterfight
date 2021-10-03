@@ -1,74 +1,179 @@
-import os
-import logging
-import random
-from flask import Flask, request
-
-logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
-logger = logging.getLogger(__name__)
-app = Flask(__name__)
+import json, random
+from os import stat
+import matplotlib.pyplot as plt
+data = '''{
+   "_links":{
+      "self":{
+         "href":"https://python-bot-jxkeswruca-em.a.run.app/"
+      }
+   },
+   "arena":{
+      "dims":[
+         13,
+         9
+      ],
+      "state":{
+         "https://nodejskrs-bot-7juvvzwy4q-uc.a.run.app":{
+            "x":0,
+            "y":0,
+            "direction":"S",
+            "wasHit":false,
+            "score":-3
+         },
+         "https://python-bot-ksvj7q4wga-em.a.run.app":{
+            "x":7,
+            "y":0,
+            "direction":"W",
+            "wasHit":false,
+            "score":-59
+         },
+         "https://python-bot-dnuf5dybaq-em.a.run.app/":{
+            "x":5,
+            "y":7,
+            "direction":"E",
+            "wasHit":false,
+            "score":-14
+         },
+         "https://python-bot-wzf2k7csnq-wl.a.run.app":{
+            "x":7,
+            "y":2,
+            "direction":"S",
+            "wasHit":false,
+            "score":16
+         },
+         "https://94e9-172-105-34-203.ngrok.io":{
+            "x":12,
+            "y":1,
+            "direction":"W",
+            "wasHit":false,
+            "score":-25
+         },
+         "https://python-bot-xpu2myq57q-uc.a.run.app":{
+            "x":12,
+            "y":0,
+            "direction":"E",
+            "wasHit":false,
+            "score":-4
+         },
+         "https://python-bot-jxkeswruca-em.a.run.app/":{
+            "x":6,
+            "y":6,
+            "direction":"E",
+            "wasHit":false,
+            "score":-49
+         },
+         "https://jay-bot-4rmtwapiia-uc.a.run.app":{
+            "x":11,
+            "y":3,
+            "direction":"S",
+            "wasHit":false,
+            "score":146
+         },
+         "https://nodejs-bot-n33wt2kama-as.a.run.app":{
+            "x":10,
+            "y":0,
+            "direction":"W",
+            "wasHit":false,
+            "score":-25
+         },
+         "https://python-bot-j4bgsvwz3a-uc.a.run.app":{
+            "x":0,
+            "y":6,
+            "direction":"N",
+            "wasHit":true,
+            "score":-72
+         },
+         "https://nodejs-bot-44oaeskbqa-as.a.run.app":{
+            "x":4,
+            "y":3,
+            "direction":"S",
+            "wasHit":false,
+            "score":-19
+         },
+         "https://python-bot-adlhc57fcq-de.a.run.app":{
+            "x":0,
+            "y":8,
+            "direction":"N",
+            "wasHit":false,
+            "score":116
+         },
+         "https://java-springboot-bot-t34nqg3eqq-as.a.run.app":{
+            "x":6,
+            "y":2,
+            "direction":"W",
+            "wasHit":false,
+            "score":-21
+         },
+         "https://java-springboot-bot-r5lsmc2n3q-an.a.run.app":{
+            "x":10,
+            "y":7,
+            "direction":"W",
+            "wasHit":false,
+            "score":-15
+         },
+         "https://java-springboot-bot-gwlv4a5zxa-as.a.run.app":{
+            "x":2,
+            "y":7,
+            "direction":"N",
+            "wasHit":true,
+            "score":-16
+         },
+         "https://python-bot-oskyweulvq-as.a.run.app/":{
+            "x":9,
+            "y":8,
+            "direction":"S",
+            "wasHit":false,
+            "score":4
+         },
+         "https://python-bot-iiqpxb2opq-uc.a.run.app":{
+            "x":7,
+            "y":3,
+            "direction":"N",
+            "wasHit":false,
+            "score":-22
+         },
+         "https://python-bot-36ufadraiq-as.a.run.app":{
+            "x":0,
+            "y":4,
+            "direction":"E",
+            "wasHit":false,
+            "score":-62
+         },
+         "https://nodejs-bot-gqugfjrxja-uc.a.run.app":{
+            "x":2,
+            "y":5,
+            "direction":"S",
+            "wasHit":false,
+            "score":124
+         }
+      }
+   }
+}'''
 
 state = []
-mystate = None
-
-def dataFormat(data):
+mystate = []
+mydata = json.loads(data)
+def formatData():
     global state, mystate
-    X = [data['arena']['state'][key]['x']
-         for key in data['arena']['state'].keys()]
-    Y = [data['arena']['state'][key]['y']
-         for key in data['arena']['state'].keys()]
-    D = [data['arena']['state'][key]['direction']
-         for key in data['arena']['state'].keys()]
-    wasHit = [data['arena']['state'][key]['wasHit']
-              for key in data['arena']['state'].keys()]
-    score = [data['arena']['state'][key]['score']
-             for key in data['arena']['state'].keys()]
-    state = list(zip(X, Y, D, wasHit, score))
-    mystate = state[0]
+    myURL = mydata['_links']['self']['href']
+    for key in mydata['arena']['state'].keys():
+        if key==myURL:
+            mystate = [mydata['arena']['state'][key]['x'],mydata['arena']['state'][key]['y'],mydata['arena']['state'][key]['direction'],mydata['arena']['state'][key]['wasHit'],mydata['arena']['state'][key]['score']]
+        else:
+            state.append([mydata['arena']['state'][key]['x'],mydata['arena']['state'][key]['y'],mydata['arena']['state'][key]['direction'],mydata['arena']['state'][key]['wasHit'],mydata['arena']['state'][key]['score']])
 
-def checkAround():
-    
-    pass
+formatData()
+print("My coordinates are :" + str(mystate))
+for player in state:
+    player - 
+'''
+X = [x-X[myPosition] for x in X]
+Y = [y-Y[myPosition] for y in Y]
+state = list(zip(X,Y,D,wasHit,score))
 
-
-def checkForward(state, mystate):
-    aheadMe = []
-    if mystate[2] == "S":
-        for x in state[1:]:
-            if x[0] == mystate[0] and x[1] > mystate[1]:
-                if x[1]-mystate[1] <= 3:
-                    aheadMe.append(x)
-                    return "T"
-    elif mystate[2] == "N":
-        for x in state[1:]:
-            if x[0] == mystate[0] and x[1] < mystate[1]:
-                if mystate[1]-x[1] <= 3:
-                    aheadMe.append(x)
-                    return "T"
-    elif mystate[2] == "E":
-        for x in state[1:]:
-            if x[0] > mystate[0] and x[1] == mystate[1]:
-                if x[0]-mystate[0] <= 3:
-                    aheadMe.append(x)
-                    return "T"
-    elif mystate[2] == "W":
-        for x in state[1:]:
-            if x[0] < mystate[0] and x[1] == mystate[1]:
-                if mystate[0]-x[0] <= 3:
-                    aheadMe.append(x)
-                    return "T"
-    if len(aheadMe)>0:
-        return "F"
-    return ["L", "R"][random.randrange(3)]
-
-
-@app.route("/", methods=['POST'])
-def move():
-    request.get_data()
-    dataFormat(request.json)
-    decision = checkForward(state, mystate)
-    logger.info(str(request.json) + " DECISION " + decision)
-    return checkForward(state, mystate)
-
-if __name__ == "__main__":
-    app.run(debug=False, host='0.0.0.0',
-            port=int(os.environ.get('PORT', 8080)))
+print(state)
+plt.gca().invert_yaxis()
+plt.scatter(X,Y)
+plt.scatter(mystate[0],mystate[1],marker="s")
+plt.show()
+'''
