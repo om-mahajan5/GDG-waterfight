@@ -72,9 +72,9 @@ def checkForward(info, myinfo):
 def move():
     request.get_data()
     formatData()
-    decision = checkForward(info, myinfo)
+    decision = checkForward(state, mystate)
     logger.info(str(request.json) + " DECISION " + decision)
-    return checkForward(info, myinfo)
+    return checkForward(decision)
     # return moves[random.randrange(len(moves))]
 
 
